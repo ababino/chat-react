@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "chat-react"
+  site-url: "https://ababino.github.io/chat-react"
+  description: "react framework for chat LLMs"
+  repo-branch: main
+  repo-url: "https://github.com/ababino/chat-react"

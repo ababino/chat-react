@@ -3,25 +3,25 @@
 # %% auto 0
 __all__ = ['CancelCallTool', 'CancelStep', 'CancelLLM', 'CancelParse', 'LogMessagesCB', 'React', 'calculator']
 
-# %% ../nbs/01_react.ipynb 1
+# %% ../nbs/01_react.ipynb 2
 import re
 
 from fastcore.all import *
 
 from .core import *
 
-# %% ../nbs/01_react.ipynb 2
+# %% ../nbs/01_react.ipynb 3
 class CancelCallTool(Exception): pass
 class CancelStep(Exception): pass
 class CancelLLM(Exception): pass
 class CancelParse(Exception): pass
 
-# %% ../nbs/01_react.ipynb 3
+# %% ../nbs/01_react.ipynb 4
 class LogMessagesCB:
     def after_llm(self, bot, out): print(out)
     def after_call_tool(self, bot, out): print(f'Output: {out}')
 
-# %% ../nbs/01_react.ipynb 4
+# %% ../nbs/01_react.ipynb 5
 class React:
     def __init__(self, prompt, examples, tools=[], cbs=[], max_turns=10, end_tool='finish'):
         self.prompt = prompt
@@ -87,7 +87,7 @@ class React:
                     hm("Output: 77"),aim("Though: I know the answer to the user question\nAction: finish[77]")]
         return cls(prompt=prompt, examples=examples, tools=funs, cbs=cbs)
 
-# %% ../nbs/01_react.ipynb 5
+# %% ../nbs/01_react.ipynb 6
 def calculator(s):
     """python interpreter"""
     return eval(s)

@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "react.html",
+    "href": "react.html",
+    "title": "ReAct Bot",
+    "section": "",
+    "text": "source\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions."
+  },
+  {
+    "objectID": "react.html#exceptions",
+    "href": "react.html#exceptions",
+    "title": "ReAct Bot",
+    "section": "",
+    "text": "source\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions.\n\nsource\n\n\n\nCommon base class for all non-exit exceptions."
+  },
+  {
+    "objectID": "react.html#callbacks",
+    "href": "react.html#callbacks",
+    "title": "ReAct Bot",
+    "section": "Callbacks",
+    "text": "Callbacks\n\nsource\n\nLogMessagesCB\n\n LogMessagesCB ()\n\nInitialize self. See help(type(self)) for accurate signature.\n\nsource\n\n\nCostCB\n\n CostCB (cost=0)\n\nInitialize self. See help(type(self)) for accurate signature.\n\nsource\n\n\nReact\n\n React (prompt=None, examples=[], tools=[], cbs=[], max_turns=10,\n        end_tool='finish')\n\nInitialize self. See help(type(self)) for accurate signature.\n\nsource\n\n\ncalculator\n\n calculator (s)\n\npython interpreter\n\nsource\n\n\nsend_to_user\n\n send_to_user (m)\n\nask a question to the user\n\nsource\n\n\nfinish\n\n finish ()\n\nsend your final answer to the user\n\nexamples = [aim(\"Though: I have to greet the user\\nAction: send_to_user[Hi, I am an AI, how can I help you today?]\"),\n            hm(\"Output: how much is 45+32\"),\n            aim(\"Though: I have to calculate 45+32\\nAction: calculator[45+32]\"),\n            hm(\"Output: 77\"),aim(\"Though: I know the answer to the user question\\nAction: finish[77]\")]\n\n\nbot = React(examples=examples, tools=[calculator, send_to_user, finish], cbs=[LogMessagesCB(), CostCB()])\n\n\nx = 1951\ny = 95109\n_, _, out = bot(f\"how much is {x}*{y}\")\ntest_eq(int(out), x*y)\n\nThough: I have to calculate 1951*95109\nAction: calculator[1951*95109]\nCost: $0.000488\nOutput: 185557659\nThough: I know the answer to the user question\nAction: finish[185557659]\nCost: $0.000558\nTotal cost: $0.001046\n\n\n\nout, cost = chat_create([hm(f\"how much is {x}*{y}. output only the result with no commas\")])\nprint(f'Total cost: ${cost}')\ntest_ne(int(out), x*y)\n\nTotal cost: $5.6e-05"
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "from reverse_tb.on import *\n\n\nsource\n\nhm\n\n hm (content)\n\n\nsource\n\n\naim\n\n aim (content)\n\n\nsource\n\n\nparse_prompt\n\n parse_prompt (text)\n\n\nprompt = \"\"\"\nuser: Hello, who are you?\nassistant: I am an AI created by OpenAI. How can I help you today?\nuser: I'd like to cancel my subscription.\nplease!\n\"\"\"\nparse_prompt(prompt)\n\n[{'role': 'user', 'content': 'Hello, who are you?'},\n {'role': 'assistant',\n  'content': 'I am an AI created by OpenAI. How can I help you today?'},\n {'role': 'user', 'content': \"I'd like to cancel my subscription.\\nplease!\"}]\n\n\n\nsource\n\n\nchat_create\n\n chat_create (messages, model='gpt-3.5-turbo', temperature=0, **kwargs)\n\n\nmessages = [hm('tell me a joke')]\nchat_create(messages)\n\n('Why did the tomato turn red?\\n\\nBecause it saw the salad dressing!', 5.2e-05)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "chat-react",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "chat-react",
+    "section": "Install",
+    "text": "Install\npip install chat_react"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "chat-react",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  }
+]
